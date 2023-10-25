@@ -12,6 +12,7 @@
                 <li><font-awesome-icon :icon="['fas', 'bell-concierge']" /><a href="#"> Servicios</a></li>
                 <li><font-awesome-icon :icon="['fas', 'address-book']" /><a href="#"> Contacto</a></li>
                 <li> <font-awesome-icon :icon="['fas', 'comments-dollar']" /><a href=""> Tesoreria</a> </li>
+                <li><font-awesome-icon :icon="['fas', 'globe']" /><RouterLink :to="{name:'homesite'}" > Ver sitio</RouterLink> </li>
                
             </ul>
         </div>
@@ -26,6 +27,14 @@
 import { RouterLink, RouterView } from 'vue-router';
 export default {
     name: 'Home',
+    mounted(){
+        const token = localStorage.getItem('TOKEN')
+             
+                if (!token || token === null) {
+                    // Redirigir al login si el token no existe o es inválido
+                    this.$router.push('/Login');
+                } 
+    }
 
 }
 </script>
@@ -44,6 +53,7 @@ export default {
     top: 0;
     left: 0;
     padding: 20px;
+    overflow-y: auto;
 }
 
 .logo {

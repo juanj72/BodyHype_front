@@ -1,6 +1,7 @@
 <template>
 
-  
+  <button class="btn btn-success" > <b>+</b> Agregar</button>
+  <hr>
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>

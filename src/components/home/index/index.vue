@@ -1,4 +1,5 @@
 <template>
+  
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
@@ -15,9 +16,9 @@
                 <td>{{ datos.apellido }}</td>
                 <td>{{ datos.correo }}</td>
                 <td>{{ datos.fecha_nacimiento }}</td>
-                <td @click="asignar(datos)"  data-bs-toggle="modal" data-bs-target="#modalpersona"
-                    style="font-size: 22px;text-align: center;color: blueviolet;cursor: pointer;"><font-awesome-icon
-                        :icon="['fas', 'eye']" /></td>
+                <td 
+                    style="font-size: 22px;text-align: center;color: blueviolet;cursor: pointer;"><font-awesome-icon @click="asignar(datos)" data-bs-toggle="modal" data-bs-target="#modalpersona"
+                        :icon="['fas', 'eye']" /> <font-awesome-icon :icon="['far', 'pen-to-square']" data-bs-toggle="modal" data-bs-target="#modaledit" @click="asignar(datos)"  /> </td>
             </tr>
 
 
@@ -36,23 +37,43 @@
                     <personapup :id=persona />
                 </div>
                 <div class="modal-footer">
-                 
+
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modaledit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Persona </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   <editperson :persona=persona />
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </template>
 
 <script>
 import axios from 'axios';
 import personapup from '../index/popups/Persona.vue'
+import editperson from '../index/popups/EditPersona.vue'
 export default {
 
     name: 'Homeindex',
     data() {
         return {
             data: null,
-            persona:1,
+            persona: 1,
         }
     },
     mounted() {
@@ -65,9 +86,9 @@ export default {
             })
 
     },
-    components: { personapup },
-    methods:{
-        asignar(persona){
+    components: { personapup,editperson },
+    methods: {
+        asignar(persona) {
             this.persona = persona;
             console.log(persona);
         }

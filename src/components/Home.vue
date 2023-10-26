@@ -7,7 +7,7 @@
                 <img src="/bh.png" alt="" width="100">
             </div>
             <ul class="menu">
-                <li><font-awesome-icon :icon="['fas', 'house']" /> <RouterLink :to="{name:'index'}" > Home</RouterLink> </li>
+                <li><font-awesome-icon :icon="['fas', 'house']" /> <RouterLink :to="{name:'homeindex'}" > Home</RouterLink> </li>
                 <li> <font-awesome-icon :icon="['fas', 'user']" /><RouterLink :to="{name:'profile'}" > Profile</RouterLink> </li>
                 <li><font-awesome-icon :icon="['fas', 'bell-concierge']" /><a href="#"> Servicios</a></li>
                 <li><font-awesome-icon :icon="['fas', 'address-book']" /><a href="#"> Contacto</a></li>

@@ -1,8 +1,7 @@
 <template>
-  
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
-            <tr>
+            <tr style="text-align: center;">
                 <td>nombre</td>
                 <td>apellido</td>
                 <td>correo</td>
@@ -16,9 +15,13 @@
                 <td>{{ datos.apellido }}</td>
                 <td>{{ datos.correo }}</td>
                 <td>{{ datos.fecha_nacimiento }}</td>
-                <td 
-                    style="font-size: 22px;text-align: center;color: blueviolet;cursor: pointer;"><font-awesome-icon @click="asignar(datos)" data-bs-toggle="modal" data-bs-target="#modalpersona"
-                        :icon="['fas', 'eye']" /> <font-awesome-icon :icon="['far', 'pen-to-square']" data-bs-toggle="modal" data-bs-target="#modaledit" @click="asignar(datos)"  /> </td>
+                <td style="font-size: 22px;text-align: center;color: blueviolet;cursor: pointer; margin-left: 2px;">
+                    <font-awesome-icon @click="asignar(datos)" data-bs-toggle="modal" data-bs-target="#modalpersona"
+                        :icon="['fas', 'eye']" />
+                    <font-awesome-icon :icon="['far', 'pen-to-square']" data-bs-toggle="modal" data-bs-target="#modaledit"
+                        @click="asignar(datos)" />
+                    <font-awesome-icon :icon="['fas', 'dumbbell']" />
+                </td>
             </tr>
 
 
@@ -51,7 +54,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                   <editperson :persona=persona />
+                    <editperson :persona=persona />
                 </div>
                 <div class="modal-footer">
 
@@ -59,14 +62,12 @@
             </div>
         </div>
     </div>
-
-
 </template>
 
 <script>
 import axios from 'axios';
-import personapup from '../index/popups/Persona.vue'
-import editperson from '../index/popups/EditPersona.vue'
+import personapup from '../index/popups/Persona.vue';
+import editperson from '../index/popups/EditPersona.vue';
 export default {
 
     name: 'Homeindex',
@@ -86,7 +87,7 @@ export default {
             })
 
     },
-    components: { personapup,editperson },
+    components: { personapup, editperson },
     methods: {
         asignar(persona) {
             this.persona = persona;

@@ -8,11 +8,11 @@
                 </li>
                 <li class="nav-item">
                     <font-awesome-icon :icon="['fas', 'dumbbell']" />
-                    <RouterLink :to="{ name: 'about_index' }">Ejercicios</RouterLink>
+                    <RouterLink :to="{ name: 'about_index' }"> Ejercicios</RouterLink>
                 </li>
                 <li class="nav-item">
                     <font-awesome-icon :icon="['fas', 'repeat']" />
-                    <RouterLink :to="{ name: 'rutinas' }"> Rutinas</RouterLink>
+                     <RouterLink :to="{ name: 'rutinas' }"> Rutinas</RouterLink>
                 </li>
                 <li class="nav-item">
                     <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><font-awesome-icon
@@ -64,7 +64,10 @@ export default {
          
 			this.$router.push('/Login')
         }
+
+        
     }
+
 }
 
 

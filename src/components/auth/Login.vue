@@ -37,6 +37,7 @@
 
 <script>
 import axios from 'axios';
+import Swal from 'sweetalert2';
 export default {
     name: 'Login',
     data() {
@@ -49,7 +50,7 @@ export default {
     mounted() {
         const token = localStorage.getItem('TOKEN')
 
-        if(token){
+        if (token) {
             this.$router.push('/');
         }
 
@@ -62,29 +63,52 @@ export default {
                     "email": this.email,
                     "password": this.password
                 }
-                
+
 
                 axios.defaults.headers.common['apikey'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNicGRjcHNsbnlzenZhZXBsaXlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODYzMjI1NzcsImV4cCI6MjAwMTg5ODU3N30.hK68jPYXFIDV86TjlROSx2KTKkr2lFJuKBV2kVn3tMM'
 
                 axios.post('https://sbpdcpslnyszvaepliyp.supabase.co/auth/v1/token?grant_type=password', user).then(response => {
                     localStorage.setItem('TOKEN', response.data.access_token);
+                    localStorage.setItem('CORREO', response.data.user.email);
+                    
+
+                    axios.get('https://sbpdcpslnyszvaepliyp.supabase.co/rest/v1/Persona?correo=eq.' + localStorage.getItem('CORREO') + '&select=*').then(response => {
+                        console.log(response.data[0].Rol_id)
+
+                        if (response.data[0].Rol_id != 1) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Al parecer no tienes permisos para acceder',
+
+                            })
+                            localStorage.removeItem('TOKEN');
+                            localStorage.removeItem('CORREO')
+                            // this.$router.push('/Login');
+
+                        }else{
+                            this.$router.push('/');
+
+                        }
+                    })
+
                 });
 
-               
-             
-               
-                    // Redirigir al login si el token no existe o es inválido
-                    
-               
-                    this.$router.push('/');
-                    // El token es válido, puedes realizar otras acciones necesarias
-               
+
+
+
+                // Redirigir al login si el token no existe o es inválido
+
+
+
+                // El token es válido, puedes realizar otras acciones necesarias
+
 
 
 
             } catch {
                 alert('Ha ocurrido algo, verifica tus credenciales!')
-             }
+            }
         }
 
     }

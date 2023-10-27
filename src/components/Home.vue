@@ -4,6 +4,7 @@
             <div class="logo">
                 <img src="/bh.png" alt="" width="100">
             </div>
+            <hr>
             <ul class="menu">
                 <li><font-awesome-icon :icon="['fas', 'house']" />
                     <RouterLink :to="{ name: 'homeindex' }"> Home</RouterLink>
@@ -89,7 +90,7 @@ export default {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    margin-left: 20%;
+    margin-left: 25%;
     border-left: #fff;
 
 }

@@ -8,6 +8,8 @@ import site_web from '../components/Pagina_web.vue'
 import Homesiteweb from '../components/pagina_web/home.vue'
 import Rutinas from '../components/home/index/Rutinas.vue'
 import Login from '../components/auth/Login.vue'
+import hommodal from '../components/home/index/popups/modalRouter/index.vue'
+import promej from '../components/home/index/popups/modalRouter/promedioej.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,12 +32,27 @@ const router = createRouter({
             {
               path: '/index/about',
               name: 'about_index',
-              component: About
+              component: About,
+              children: [
+                {
+                  path: '/index/about/modal',
+                  name: 'homemodal',
+                  component:hommodal,
+                  props: (route) => ({ id: route.query.valor })
+
+                },
+                {path:'/index/about/prom/',
+                name: 'promej',
+                component: promej,
+                props: (route) => ({ id: route.query.valor })
+
+                }
+              ]
 
             },
             {
-              path:'/index/rutinas',
-              name:'rutinas',
+              path: '/index/rutinas',
+              name: 'rutinas',
               component: Rutinas
 
             }
@@ -57,8 +74,8 @@ const router = createRouter({
       component: site_web,
       children: [
         {
-          path:'/pagina/home',
-          name:'homesite',
+          path: '/pagina/home',
+          name: 'homesite',
           component: Homesiteweb
         }
       ]
@@ -66,9 +83,9 @@ const router = createRouter({
 
     },
     {
-      path:'/Login',
-      name:'login',
-      component:Login
+      path: '/Login',
+      name: 'login',
+      component: Login
     }
   ]
 })

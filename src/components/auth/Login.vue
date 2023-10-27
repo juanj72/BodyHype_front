@@ -36,7 +36,7 @@
 
 
 <script>
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import Swal from 'sweetalert2';
 export default {
     name: 'Login',
@@ -70,7 +70,7 @@ export default {
                 axios.post('https://sbpdcpslnyszvaepliyp.supabase.co/auth/v1/token?grant_type=password', user).then(response => {
                     localStorage.setItem('TOKEN', response.data.access_token);
                     localStorage.setItem('CORREO', response.data.user.email);
-                    
+
 
                     axios.get('https://sbpdcpslnyszvaepliyp.supabase.co/rest/v1/Persona?correo=eq.' + localStorage.getItem('CORREO') + '&select=*').then(response => {
                         console.log(response.data[0].Rol_id)
@@ -86,10 +86,11 @@ export default {
                             localStorage.removeItem('CORREO')
                             // this.$router.push('/Login');
 
-                        }else{
+                        } else {
                             this.$router.push('/');
 
                         }
+                   
                     })
 
                 });
@@ -97,17 +98,19 @@ export default {
 
 
 
-                // Redirigir al login si el token no existe o es inválido
-
-
-
-                // El token es válido, puedes realizar otras acciones necesarias
 
 
 
 
-            } catch {
-                alert('Ha ocurrido algo, verifica tus credenciales!')
+            } catch (error) {
+                if (error.response) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Verifica tus credenciales, o comunicate con el administrador',
+
+                    })
+                }
             }
         }
 

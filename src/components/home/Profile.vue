@@ -13,6 +13,13 @@
 
         </div>
         <br>
+        <hr>
+        <div class="row text-center">
+            <br>
+          
+            <h4>{{ datos.correo }}</h4>
+        </div>
+        <br>
         <div class="row">
             <div class="container text-center">
                 <div class="row g-2">

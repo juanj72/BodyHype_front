@@ -1,8 +1,5 @@
 
 <template>
-
-
-
     <div id="app">
         <div class="sidebar">
             <div class="logo">
@@ -16,9 +13,10 @@
                 <li> <font-awesome-icon :icon="['fas', 'user']" />
                     <RouterLink :to="{ name: 'profile' }"> Profile</RouterLink>
                 </li>
-                <li><font-awesome-icon :icon="['fas', 'bell-concierge']" /><a href="#"> Servicios</a></li>
-                <li><font-awesome-icon :icon="['fas', 'address-book']" /><a href="#"> Contacto</a></li>
-                <li> <font-awesome-icon :icon="['fas', 'comments-dollar']" /><a href=""> Tesoreria</a> </li>
+
+                <li>
+                    <font-awesome-icon :icon="['fas', 'comments-dollar']" /> 
+                    <RouterLink :to="{name:'tesoreria'}" > Tesoreria</RouterLink> </li>
                 <li><font-awesome-icon :icon="['fas', 'globe']" />
                     <RouterLink :to="{ name: 'homesite' }"> Ver sitio</RouterLink>
                 </li>

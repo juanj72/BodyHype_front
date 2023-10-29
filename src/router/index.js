@@ -8,6 +8,7 @@ import site_web from '../components/Pagina_web.vue'
 import Homesiteweb from '../components/pagina_web/home.vue'
 import Rutinas from '../components/home/index/Rutinas.vue'
 import Login from '../components/auth/Login.vue'
+import tesoreria from '../components/home/Tesoreria.vue'
 
 
 const router = createRouter({
@@ -40,16 +41,22 @@ const router = createRouter({
               name: 'rutinas',
               component: Rutinas
 
-            }
+            },
+          
 
 
           ]
         },
         {
-          path: 'profile',
+          path: '/profile',
           name: 'profile',
           component: Profile
 
+        },
+        {
+          path:'/tesoreria',
+          name:'tesoreria',
+          component:tesoreria
         }
       ]
     },

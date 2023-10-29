@@ -34,15 +34,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Body Hype App Dice</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        ¿Estás seguro que quieres salir ?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" @click="logout" data-bs-dismiss="modal">Si, salir</button>
+                        <button type="button" class="btn " style="background-color: blueviolet; color: aliceblue;"  @click="logout" data-bs-dismiss="modal">Si, salir</button>
                     </div>
                 </div>
             </div>

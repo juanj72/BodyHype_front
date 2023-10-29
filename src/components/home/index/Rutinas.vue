@@ -18,8 +18,11 @@
                 <td>{{ datos.imc_recomendado_min }}</td>
                 <td>{{ datos.imc_recomendado_max }}</td>
                 <td style="font-size: 22px;text-align: center;color: blueviolet;cursor: pointer;">
-                    <font-awesome-icon :icon="['far', 'pen-to-square']" data-bs-toggle="modal"
-                        data-bs-target="#editrutina" @click="sentData(datos)" />
+                    <font-awesome-icon :icon="['far', 'pen-to-square']" data-bs-toggle="modal" data-bs-target="#editrutina"
+                        @click="sentData(datos)" />
+
+                    <font-awesome-icon :icon="['fas', 'weight-hanging']"  data-bs-toggle="modal" data-bs-target="#addejag" />
+
                 </td>
 
             </tr>
@@ -63,18 +66,36 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="addejag" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">add rutina </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <listejercicios/>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 import axios from 'axios';
 import addrutina from '../index/popups/addRutina.vue'
 import editrutina from '../index/popups/editRutina.vue'
+import listejercicios from '../index/popups/listejerutin.vue'
 export default {
     name: 'Rutinas',
     data() {
         return {
             data: null,
-            rutinadata:1
+            rutinadata: 1
         }
     },
 
@@ -90,7 +111,8 @@ export default {
     },
     components: {
         addrutina,
-        editrutina
+        editrutina,
+        listejercicios
     },
     methods: {
         updatedata() {
@@ -104,15 +126,15 @@ export default {
 
         },
 
-        sentData(rutina){
+        sentData(rutina) {
             this.rutinadata = rutina
 
         }
 
 
     },
-    created(){
-        
+    created() {
+
     }
 
 }

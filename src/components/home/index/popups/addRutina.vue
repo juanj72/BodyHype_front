@@ -75,6 +75,7 @@ export default {
                             'success'
                         )
                         this.$emit('rutina-agregada');
+                        this.nombre_rutina = this.imcmax = this.imcmin = ''
                        
                     }
                 })

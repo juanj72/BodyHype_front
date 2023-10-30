@@ -113,6 +113,8 @@ export default {
                             'success'
                         )
                         this.$emit('ejercicio-agregado');
+
+                        this.nombre = this.descripcion = this.series = this.repeticiones = this.tipo_ejercicios = this.categoria = this.img = ''
                     }
                 })
             } catch {

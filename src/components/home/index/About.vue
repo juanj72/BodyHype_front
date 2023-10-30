@@ -36,7 +36,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <editejer :ejercicio=id />
+                   
                 </div>
                 <div class="modal-footer">
                   
@@ -63,7 +63,7 @@
 
 <script>
 import axios from 'axios';
-import editejer from '../index/popups/editejercicio.vue'
+
 
 import addejercicio from '../index/popups/addEjercicio.vue';
 export default {
@@ -86,7 +86,7 @@ export default {
     components: {
         
         addejercicio,
-        editejer
+      
 
     },
     methods: {

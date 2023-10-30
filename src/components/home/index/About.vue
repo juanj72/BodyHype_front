@@ -63,8 +63,7 @@
 
 <script>
 import axios from 'axios';
-import editejercicio from '../index/popups/editejercicio.vue'
-
+import editejercicio from '../index/popups/editejercicio.vue';
 import addejercicio from '../index/popups/addEjercicio.vue';
 export default {
     name: 'About',

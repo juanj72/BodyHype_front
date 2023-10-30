@@ -1,10 +1,12 @@
 <template>
-    <h2>Add pay</h2>
+<h2>edit ejercicio</h2>
+
 </template>
 
 
 <script>
 export default{
-    name:'addpay'
+    name:'editejercicio'
 }
+
 </script>

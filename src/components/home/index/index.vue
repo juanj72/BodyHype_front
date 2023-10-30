@@ -2,15 +2,15 @@
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr style="text-align: center;">
-                <td>nombre</td>
-                <td>apellido</td>
-                <td>correo</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Correo</td>
                 <td>Fecha de nacimiento</td>
                 <td>Detalle</td>
             </tr>
         </thead>
         <tbody v-for="datos in data" :key="datos.id">
-            <tr>
+            <tr class="text-center" >
                 <td>{{ datos.nombre }}</td>
                 <td>{{ datos.apellido }}</td>
                 <td>{{ datos.correo }}</td>
@@ -20,7 +20,7 @@
                         :icon="['fas', 'eye']" />
                     <font-awesome-icon :icon="['far', 'pen-to-square']" data-bs-toggle="modal" data-bs-target="#modaledit"
                         @click="asignar(datos)" />
-                    <font-awesome-icon :icon="['fas', 'dumbbell']" />
+                    <!-- <font-awesome-icon :icon="['fas', 'dumbbell']" /> -->
                 </td>
             </tr>
 

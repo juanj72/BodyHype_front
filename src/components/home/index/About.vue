@@ -3,7 +3,7 @@
     <hr>
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
-            <tr>
+            <tr class="text-center">
                 <td>Nombre</td>
                 <td>Categoría</td>
                 <td>Ejemplo</td>
@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody v-for="datos in data" :key="datos.id">
-            <tr>
+            <tr class="text-center" >
                 <td>{{ datos.nombre }}</td>
                 <td>{{ datos.categoria_id }}</td>
                 <td><img :src="datos.img" alt="" width="60"></td>

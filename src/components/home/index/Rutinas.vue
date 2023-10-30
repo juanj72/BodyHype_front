@@ -4,16 +4,16 @@
 
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
-            <tr>
-                <td>nombre</td>
-                <td>IMC minimo</td>
-                <td>IMC maximo</td>
+            <tr class="text-center">
+                <td>Nombre</td>
+                <td>IMC mínimo</td>
+                <td>IMC máximo</td>
                 <td>Detalle</td>
 
             </tr>
         </thead>
         <tbody v-for="datos in data" :key="datos.id">
-            <tr>
+            <tr class="text-center">
                 <td>{{ datos.nombre_rutina }}</td>
                 <td>{{ datos.imc_recomendado_min }}</td>
                 <td>{{ datos.imc_recomendado_max }}</td>

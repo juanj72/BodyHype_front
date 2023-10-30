@@ -17,7 +17,7 @@
                 <td><img :src="datos.img" alt="" width="60"></td>
                 <td style="font-size: 22px;text-align: center;color: blueviolet;cursor: pointer; margin-left: 2px;">
                     <font-awesome-icon :icon="['far', 'pen-to-square']" data-bs-toggle="modal" data-bs-target="#modalrouter"
-                        @click="asignar(datos.id)" />
+                        @click="asignar(datos)" />
 
                 </td>
             </tr>
@@ -32,15 +32,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Router</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+                    <editejer :ejercicio=id />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                  
                 </div>
             </div>
         </div>
@@ -64,6 +63,7 @@
 
 <script>
 import axios from 'axios';
+import editejer from '../index/popups/editejercicio.vue'
 
 import addejercicio from '../index/popups/addEjercicio.vue';
 export default {
@@ -85,7 +85,8 @@ export default {
     },
     components: {
         
-        addejercicio
+        addejercicio,
+        editejer
 
     },
     methods: {

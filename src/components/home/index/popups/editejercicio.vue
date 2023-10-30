@@ -1,5 +1,9 @@
 <template>
-<h2>edit ejercicio</h2>
+<form >
+    
+
+
+</form>
 
 </template>
 
